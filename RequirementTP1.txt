@@ -1,0 +1,50 @@
+• Peupler la liste d'items
+
+	- Créer une liste simplement chainer pour emmagasiner l'information des objets
+	- Créer des void* pour le nom et la valeur des objets
+	- Chargé le document data.csv dans la liste
+
+• Créer un inventaire dynamique
+
+	- Créer une liste doublement chainée.
+	- Elle doit être capable de:
+		- ajouter des objets
+		- enlever des objets
+		- trier des objets
+		- trouver un objets depuis sa position
+		- trouver un objets depuis son nom
+		- savoir combien il y a d'object dans son inventaire
+
+• Ajouter l'item nommé "fiole" (Potion) dans l'inventaire
+
+	- Depuis la liste items, Utiliser une comparaison pour trouver le nom "Potion"
+	- Ajouter la potion dans la liste inventaire 
+
+• Peupler l'inventaire d'un nombre aléatoire d'items en considérant que la "fiole" a déjà été ajouté. Choisir les autres items aléatoirement et les ajouter dans l'inventaire.
+
+	- Implémenter une fonction aléatoire (0,5)
+	- Chercher un objet dans la liste items à la position du chiffre généré aléatoirement
+	- Verifier si le nom de l'objet n'est pas "Potion"
+	- Chargé cet objet dans l'inventaire
+
+• Imprimer dans la console les items dans l'inventaire
+
+	- Faire une boucle de la grandeur de l'inventaire 
+	- Imprimer l'object dans la console
+	- Passer à la position du prochain objet
+
+• Trier la liste d'items dans l'inventaire relatif à leur valeur de vente
+
+	- Faire un algorithme de tri "insertion sort"
+	- Comparer la valeur des objets
+
+• enlever l'item "fiole" (Potion) en utilisant son nom.
+
+	- Chercher un objet nommer "Potion" dans l'inventaire
+	- Suprimer l'objet "Potion"
+
+• Imprimer dans la console les items dans l'inventaire à nouveau.
+
+	- Faire une boucle de la grandeur de l'inventaire 
+	- Imprimer l'object dans la console
+	- Passer à la position du prochain objet
