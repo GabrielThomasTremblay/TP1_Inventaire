@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 
+
 typedef struct Node Node;
 
 struct Node {
@@ -11,6 +12,6 @@ struct Node {
 
 typedef struct Items {
 
-	char* name;
-	int value;
+	char name[252];
+
 } Items;
