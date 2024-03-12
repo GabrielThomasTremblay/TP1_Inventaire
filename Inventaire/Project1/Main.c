@@ -4,14 +4,10 @@
 #include <string.h>
 #include "Structure.h"
 
-
-
-
-void main(Node* ItemsList, Node* Inventory, Items* Items) {
+void ReadFile(Head* itemsList, Head* inventory) {
 
 
 	FILE* file;
-    ItemsList = NULL;
 	
 	file = fopen("data.csv", "r");
     if (file == NULL) {
@@ -19,18 +15,51 @@ void main(Node* ItemsList, Node* Inventory, Items* Items) {
         printf("Data file not found\n");
         return 1;
     }
-
-    while (fgets(Items->name, sizeof(Items->name), file)) {
+    Item* item = malloc(sizeof(item));
+    char buffer[256];
+    char* data;
+    
+    while (fgets(buffer, sizeof(buffer)/ sizeof(buffer[0]), file)) {
        
-        Node* n = (Node*)malloc(sizeof(Node));
-        n->data = Items;
-        n->next = NULL;
-        if (ItemsList->next != NULL) {
+        data = strtok(buffer, ",");
+        data = strtok(NULL, ",");
 
-            n->next = ItemsList->next;
-        }
+        strcpy(item->name, data);
+        printf("Name: %s\t", data);
+        
+        data = strtok(NULL, ",");
+        data = strtok(NULL, ",");
+        
+        item->value = atoi(data);
+        printf(" Value: %d\n", item->value);
 
-        ItemsList->next = n;
+        insertion(itemsList, item);
     }
     fclose(file);
+
+    return;
+}
+
+insertion(Head* currNode, void* newData) {
+
+    Node* n = (Node*)malloc(sizeof(n));
+    n->data = newData;
+    n->prev = NULL;
+    n->next = NULL;
+    if (currNode->next != NULL) {
+
+        n->next = currNode->next;
+        currNode->next->prev = n;
+    }
+    currNode->next = n;
+    n->prev = currNode;
+
+}
+
+int main(int argc, char** argv) {
+    Head possible_items = { 0 };
+    Head inventory = { 0 };
+    ReadFile(&possible_items, &inventory);
+
+
 }

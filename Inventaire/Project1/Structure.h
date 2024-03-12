@@ -9,9 +9,10 @@ struct Node {
 	Node* next;
 	Node* prev;
 } ;
+typedef Node Head;
 
-typedef struct Items {
+typedef struct Item {
 
-	char name[252];
-
-} Items;
+	char* name[256];
+	int value;
+} Item;
