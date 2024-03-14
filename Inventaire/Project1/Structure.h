@@ -1,3 +1,5 @@
+#pragma once
+
 #include <stdio.h>
 
 
@@ -13,6 +15,6 @@ typedef Node Head;
 
 typedef struct Item {
 
-	char* name[256];
+	char name[64];
 	int value;
 } Item;
