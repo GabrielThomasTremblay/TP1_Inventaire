@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
+#include <time.h>
 #include "Structure.h"
 
 
@@ -92,24 +93,82 @@ void* Search(Head* head, int value) {
             break;
         }
 
-        printf("\n%s\n", ((Item*)temp->data)->name);
-        printf("\n%d\n", ((Item*)temp->data)->value);
         temp = temp->next;
     }
-    return temp;
+    return temp->data;
+}
+int Random(int min, int max) {
+    int num = (rand() % (max - min + 1)) + min;
+
+    return num;
+}
+
+int randomObject() {
+
+    int num = Random(0, 4);
+
+    if (num >= 4) {
+        num = 1;
+    }
+    else if (num <= 4 && num >= 3) {
+        num = 100;
+    }
+    else if (num <= 3 && num >= 2) {
+        num = 50;
+    }
+    else if (num <= 2 && num >= 1) {
+        num = 200;
+    }
+    else{
+        num = 25;
+    }
+
+
+    return num;
+}
+
+void affichageInventaire(Head* inventaire) {
+
+    printf("\nCurrent Inventory: \n");
+    Node* temp = inventaire->next;
+    while (temp != inventaire->prev)
+    {
+
+        printf("%s\t\t", ((Item*)temp->data)->name);
+        printf("%d\n", ((Item*)temp->data)->value);
+        temp = temp->next;
+    }
+}
+
+void insertionSort(Head* inventaire) {
+
+    int y = 1;
+    Node* temp = inventaire->next;
+    while (temp != inventaire->prev) {
+
+        
+        while (y > 0 && (((Item*)temp->data)->value) < (((Item*)temp->prev->data)->value)){
+
+        }
+        y--;
+    }
 }
 
 int main(int argc, char** argv) {
     heap = (uint8_t*)malloc(HEAP_SIZE);
     assert(heap != NULL);
+    srand(time(0));
     Head possible_items = { 0 };
     Head inventory = { 0 };
     Item object = { 0 };
+    int numRepetition = Random(1, 20);
     ReadFile(&possible_items, &inventory);
     push_back(&inventory, Search(&possible_items, 10));
-
-    printf("\n%s\n", ((Item*)&inventory.data)->name);
-    printf("\n%d\n", ((Item*)&inventory.data)->value);
+    for (int i = 0; i <= numRepetition; i++) {
+        push_back(&inventory, Search(&possible_items, randomObject()));
+    }
+    affichageInventaire(&inventory);
+    
  
 
 
