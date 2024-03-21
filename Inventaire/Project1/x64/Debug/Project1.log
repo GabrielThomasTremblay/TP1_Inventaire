@@ -1,4 +1,4 @@
 ﻿  Main.c
-C:\Users\super\Documents\TP1_Inventaire\Inventaire\Project1\Main.c(32,17): warning C4098: 'ReadFile': 'void' function returning a value
-C:\Users\super\Documents\TP1_Inventaire\Inventaire\Project1\Main.c(167,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Project1.vcxproj -> C:\Users\super\Documents\TP1_Inventaire\Inventaire\x64\Debug\Project1.exe
+C:\Users\2330009\Documents\TP1_Inventaire\Inventaire\Project1\Main.c(32,17): warning C4098: 'ReadFile' : fonction 'void' retournant une valeur
+C:\Users\2330009\Documents\TP1_Inventaire\Inventaire\Project1\Main.c(170,11): warning C4244: 'fonction' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Project1.vcxproj -> C:\Users\2330009\Documents\TP1_Inventaire\Inventaire\x64\Debug\Project1.exe

@@ -75,6 +75,8 @@ void push_back(Head* head, void* newData) {
         head->prev->next = n;
         n->prev = head->prev;
         head->prev = n;
+        head->next->prev = n;
+        head->prev->next = head->next;
 
     }
 
@@ -146,18 +148,19 @@ void insertionSort(Head* inventaire) {
     Node* temp = inventaire->prev;
     inventaire = inventaire->next;
     Node* holder;
-    while (inventaire != temp->prev) {
+    while (inventaire != temp) {
 
         
-        while ((((Item*)inventaire->data)->value) < (((Item*)inventaire->prev->data)->value)){
+        while ((((Item*)inventaire->data)->value) > (((Item*)inventaire->next->data)->value)){
             holder = inventaire->prev;
 
-            inventaire->prev = inventaire->prev->prev;
-            inventaire->prev->next = inventaire->next;
-            inventaire->next = holder;
-            inventaire->next->prev = inventaire;
+            inventaire->next = inventaire->next->next;
+            inventaire->next->prev = inventaire->prev;
+            inventaire->prev = holder;
+            inventaire->prev->next = inventaire;
         }
         inventaire = inventaire->next;
+
     }
 }
 
