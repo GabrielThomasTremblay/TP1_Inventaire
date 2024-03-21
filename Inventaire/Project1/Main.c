@@ -142,15 +142,22 @@ void affichageInventaire(Head* inventaire) {
 
 void insertionSort(Head* inventaire) {
 
-    int y = 1;
-    Node* temp = inventaire->next;
-    while (temp != inventaire->prev) {
+    
+    Node* temp = inventaire->prev;
+    inventaire = inventaire->next;
+    Node* holder;
+    while (inventaire != temp->prev) {
 
         
-        while (y > 0 && (((Item*)temp->data)->value) < (((Item*)temp->prev->data)->value)){
+        while ((((Item*)inventaire->data)->value) < (((Item*)inventaire->prev->data)->value)){
+            holder = inventaire->prev;
 
+            inventaire->prev = inventaire->prev->prev;
+            inventaire->prev->next = inventaire->next;
+            inventaire->next = holder;
+            inventaire->next->prev = inventaire;
         }
-        y--;
+        inventaire = inventaire->next;
     }
 }
 
@@ -167,6 +174,8 @@ int main(int argc, char** argv) {
     for (int i = 0; i <= numRepetition; i++) {
         push_back(&inventory, Search(&possible_items, randomObject()));
     }
+    affichageInventaire(&inventory);
+    insertionSort(&inventory);
     affichageInventaire(&inventory);
     
  
